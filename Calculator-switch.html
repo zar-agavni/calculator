@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator Switch Cases</title>
+	<style type="text/css">
+		body{
+			background-color: #13a8ab;
+		}
+		.calc-container{
+			background-color: white;
+			border-radius: 5px;
+			box-shadow: 8px 11px 15px 5px #000000;
+			padding: 10px;
+			width: 70%;
+		}
+	</style>
+</head>
+<body>
+	<script language = "javascript" type = "text/javascript">
+	function calculate(){
+		var xText = document.getElementById("calc-x").value;
+		var xInt = parseInt(xText);
+		var yText = document.getElementById("calc-y").value
+		var yInt = parseInt(yText);
+		var operator = document.getElementById("calc-operator").value;
+		var calcResult = document.getElementById("calc-result");
+
+		
+		switch(operator){
+			// Calculate +
+			case "+":
+				calcResult.value=xInt+yInt;
+			break;
+
+			// Calculate -
+			case "-":
+				calcResult.value=xInt-yInt;
+			break;
+
+			// Calculate *
+			case "*":
+				calcResult.value=xInt*yInt;
+			break;
+
+			// Calculate /
+			case "/":
+				if (yInt!==0) {
+					calcResult.value=xInt/yInt;
+				} else {
+					alert("Wrong action")
+				}
+			break;
+
+			// Calculate %
+			case "%":
+				if(yInt>0){
+					calcResult.value=xInt*yInt/100;
+				} else {
+					alert("Please provide a number greater than 0, my calculator my rules))")
+				}
+			break;
+
+		}
+	}
+
+	</script>  
+	<div class="calc-container">
+		<h1>Calculator Switch Case</h1>
+		<input id="calc-x" type="number">
+		<select id="calc-operator">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+			<option value="%">%</option>
+		</select>
+		<input id="calc-y" type="number">
+		<button id="calc-equal" onclick="calculate()">=</button>
+		<input id="calc-result" type="text">
+	</div>
+
+</body>
+</html>
